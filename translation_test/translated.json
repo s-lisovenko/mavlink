@@ -1,0 +1,12 @@
+{
+  "fr": {
+    "param/ctl_hz_idle/shortDesc": "Vitesse d'inactivit\u00e9 (e Hz)",
+    "param/ctl_start_rate/shortDesc": "Taux de rotation (e Hz/s)",
+    "param/int_status/shortDesc": "Intervalle d'\u00e9tat ESC (\u03bcs)"
+  },
+  "de": {
+    "param/int_status/longDesc": "ESC-Statusintervall (\u03bcs)",
+    "param/mot_v_accel/shortDesc": "Beschleunigungslimit (V)",
+    "param/mot_v_max/values/2": "Flieger"
+  }
+}
