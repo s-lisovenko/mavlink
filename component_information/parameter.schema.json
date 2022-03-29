@@ -10,6 +10,10 @@
             "type":         "integer",
             "minimum":      1
         },
+        "translation": {
+            "type": "object",
+            "description": "This needs to match exactly with the content of parameter.translation.json"
+        },
         "parameters": {
             "type": "array",
 

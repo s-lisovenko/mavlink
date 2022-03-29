@@ -21,6 +21,7 @@ output_file = args.file_output
 with open(json_file, 'r') as stream:
     metadata = json.load(stream)
 
+# This is expected to follow the translation.schema.json
 translation = metadata['translation']
 
 def process_items(prefix, translation, json_data, global_translations):
@@ -35,14 +36,24 @@ def process_items(prefix, translation, json_data, global_translations):
         if 'translate' in translation:
             for translate_name in translation['translate']:
                 if translate_name in json_data:
-                    ret.append((prefix+'/'+translate_name, json_data[translate_name]))
+                    if isinstance(json_data[translate_name], str):
+                        ret.append((prefix+'/'+translate_name, json_data[translate_name]))
+                    elif isinstance(json_data[translate_name], list): # list of strings
+                        for idx, item in enumerate(json_data[translate_name]):
+                            assert isinstance(item, str)
+                            ret.append((prefix+'/'+translate_name+'/'+str(idx), item))
         if 'translate-global' in translation:
             for translate_name in translation['translate-global']:
                 if translate_name in json_data:
                     if translate_name not in global_translations:
                         global_translations[translate_name] = set()
                     # globals will turn into '_globals/$translate_name/$json_data[translate_name]'
-                    global_translations[translate_name].add(json_data[translate_name])
+                    if isinstance(json_data[translate_name], str):
+                        global_translations[translate_name].add(json_data[translate_name])
+                    elif isinstance(json_data[translate_name], list): # list of strings
+                        for idx, item in enumerate(json_data[translate_name]):
+                            assert isinstance(item, str)
+                            global_translations[translate_name].add(item)
         if 'items' in translation:
             ret.extend(process_items(prefix, translation['items'], json_data, global_translations))
         return ret
