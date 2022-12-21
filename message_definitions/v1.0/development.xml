@@ -162,7 +162,7 @@
       </entry>
       <entry value="2" name="MAV_STANDARD_MODE_PROPERTY_NOT_USER_SELECTABLE">
         <description>If set, this mode should not be added to the list of selectable modes.
-		  The mode might still be selected by the FC directly (for example as part of a failsafe).
+          The mode might still be selected by the FC directly (for example as part of a failsafe).
         </description>
       </entry>
     </enum>
