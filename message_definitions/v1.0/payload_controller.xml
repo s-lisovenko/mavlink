@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<mavlink>
+    <version>1</version>
+    <dialect>0</dialect>
+    <enums>
+        <enum name="MESSAGE_TYPE">
+            <entry value="0" name="PAYLOAD_CONTROLLER_API_REQUEST"/>
+            <entry value="1" name="PAYLOAD_CONTROLLER_API_RESPONSE"/>
+        </enum>
+    </enums>
+    <messages>
+        <message id="9500" name="PAYLOAD_CONTROLLER_API_MESSAGE">
+            <description>Request and response message between payload controller and QGC</description>
+            <field type="uint8_t" name="messageType" enum="MESSAGE_TYPE" display="bitmask">Message type</field>
+            <field type="char[250]" name="message">Json message between payload controller and QGC.</field>
+        </message>
+    </messages>
+</mavlink>
