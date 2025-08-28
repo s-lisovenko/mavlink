@@ -2,6 +2,7 @@
 <mavlink>
   <!-- MAVLink standard messages -->
   <include>minimal.xml</include>
+  <include>payload_controller.xml</include>
   <dialect>0</dialect>
   <!-- use minimal.xml enums -->
   <enums/>

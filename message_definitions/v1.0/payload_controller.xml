@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<mavlink>
+    <version>1</version>
+    <dialect>0</dialect>
+    <messages>
+        <message id="9500" name="PAYLOAD_CONTROLLER_API_MESSAGE">
+            <description>Json message between payload controller and QGC</description>
+            <field type="char[252]" name="message">Json message between payload controller and QGC.</field>
+        </message>
+    </messages>
+</mavlink>
